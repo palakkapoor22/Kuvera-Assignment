@@ -1,0 +1,2 @@
+This is a basic front end of an application that takes purchase date, investment , fund house and selling date as inputs and provide with the final Investment amount on the selling date.NAV history as provided is used to calculate the amount which is stored as a text file. The file includes data only upto 30-May-2019 so a separate field of selling date has been included in the form.
+This application also returns some exceptions as ValueError if the conditions do not meet.

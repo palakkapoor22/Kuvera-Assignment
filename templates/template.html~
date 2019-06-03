@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 5px solid #f1f1f1;}
+
+input[type=text], input[type=password] {
+  width: 40%;
+  padding: 4px 6px;
+  margin: 4px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 12px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 20%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+
+.container {
+  padding: 180px;
+}
+
+</style>
+<body>
+<div class="container">
+	<div class="w3-container w3-blue center">
+		<h2>Enter the details</h2>
+	</div>
+	<form action=" " method="post">
+    	{% csrf_token %}
+		<b>Investment Amount :</b> {{form.investment}}<br/>
+		<b>Date of Buying :</b> {{form.date}}<br/>
+		<b>Fund House :</b> 
+		<select name="fund_house" required>
+			{%for item in fund_house%}
+				<option >{{item}}</option>
+			{% endfor %}
+		</select><br/>
+		<b>Date of Selling : </b>{{form.date2}}<br/>
+		<button type="submit" value="Submit"><b>Submit</b></button>
+	</form>
+</div>
+</body>
+</html>
