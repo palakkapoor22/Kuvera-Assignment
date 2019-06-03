@@ -40,13 +40,13 @@ def get_name(request):
 			else:
 				print("nav error")		
 				raise ValueError("NAV data not available for the given date!") 
-			print("dt",date_purchase,"date sell",date_sell,"inv",investment,"fh",fh,"nav",nav1,"un",units,"n2",nav2,"ia",investment_amount)
+#			print("dt",date_purchase,"date sell",date_sell,"inv",investment,"fh",fh,"nav",nav1,"un",units,"n2",nav2,"ia",investment_amount)
 			result={'date_purchase':date_purchase , 'date_sell':date_sell , 'investment':investment, 'nav1':nav1 ,'nav2':nav2, 'amount':round(investment_amount,3)}			
 			file.close()
 			return render(request, 'result.html',{"res":result})
 		else:
 			print ("not valid")
-			return HttpResponseRedirect('')
+			raise ValueError("Valid input ont provided!") 
     # if a GET (or any other method) we'll create a blank form
 	else:
 		file = open('/home/iiitg/kuvera/kuvera/assignment/nav.txt')
@@ -63,6 +63,7 @@ def get_name(request):
 		form = NameForm()
 		file.close()
 		return render(request, 'template.html',{"form":form,"fund_house":fund_house})
-
+	
+	raise ValueError("Invalid Request!") 
 	return HttpResponseRedirect('error')
 	
