@@ -46,7 +46,7 @@ def get_name(request):
 			return render(request, 'result.html',{"res":result})
 		else:
 			print ("not valid")
-			raise ValueError("Valid input ont provided!") 
+			raise ValueError("Valid input not provided!") 
     # if a GET (or any other method) we'll create a blank form
 	else:
 		file = open('/home/iiitg/kuvera/kuvera/assignment/nav.txt')
